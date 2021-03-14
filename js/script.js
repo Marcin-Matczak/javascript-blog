@@ -63,15 +63,22 @@ for (let link of links) {
 
         /* [IN PROGRESS] for each article */
 
-            /* get the article id */
+            /* [DONE] get the article id */
 
-            /* find the title element */
+        const articles = document.querySelectorAll(optArticleSelector);
 
-            /* get the title from the title element */
+        for (let article of articles) {
+            const articleId = article.getAttribute('id');
+            console.log('articleId', articleId)
+        }
 
-            /* create HTML of the link */
+        /* find the title element */
 
-            /* insert link into titleList */
+        /* get the title from the title element */
+
+        /* create HTML of the link */
+
+        /* insert link into titleList */
 
     }
 
