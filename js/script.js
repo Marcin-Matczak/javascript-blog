@@ -45,13 +45,6 @@
         console.log('clickedArticle:', targetArticle);
     }
 
-
-    const links = document.querySelectorAll('.titles a');
-
-    for (let link of links) {
-        link.addEventListener('click', titleClickHandler);
-    }
-
     const optArticleSelector = '.post',
         optTitleSelector = '.post-title',
         optTitleListSelector = '.titles';
@@ -60,10 +53,11 @@
 
         /* [DONE] remove contents of titleList */
 
-        const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
+        const titleList = document.querySelector(optTitleListSelector);
+        titleList.innerHTML = '';
         console.log('Title list removed');
 
-        /* [IN PROGRESS] for each article */
+        /* [DONE] for each article */
 
         const articles = document.querySelectorAll(optArticleSelector);
 
@@ -95,8 +89,14 @@
 
         titleList.innerHTML = html;
 
+        const links = document.querySelectorAll('.titles a');
+
+        for (let link of links) {
+            link.addEventListener('click', titleClickHandler);
+        }
+
     }
 
     generateTitleLinks();
-}
 
+}
