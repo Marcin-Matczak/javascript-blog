@@ -66,6 +66,9 @@
         /* [IN PROGRESS] for each article */
 
         const articles = document.querySelectorAll(optArticleSelector);
+
+        let html = '';
+
         for (let article of articles) {
             console.log(article);
 
@@ -85,11 +88,12 @@
             const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
             console.log('Generated link:', linkHTML);
 
+            /* [DONE] insert link into html variable */
 
-
+            html = html + linkHTML;
         }
 
-
+        titleList.innerHTML = html;
 
     }
 
