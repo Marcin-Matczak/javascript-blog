@@ -48,7 +48,8 @@
     const optArticleSelector = '.post',
         optTitleSelector = '.post-title',
         optTitleListSelector = '.titles',
-        optArticleTagsSelector = '.post-tags .list';
+        optArticleTagsSelector = '.post-tags .list',
+        optArticleAuthorSelector = '.post-author';
 
     function generateTitleLinks(customSelector = '') {
 
@@ -112,14 +113,14 @@
             console.log(article);
 
             /* [DONE] find tags wrapper */
-            let tagsWrapper = article.querySelector(optArticleTagsSelector);
+            const tagsWrapper = article.querySelector(optArticleTagsSelector);
             console.log('Tags wrapper working');
 
             /* [DONE] make html variable with empty string */
             let html = '';
 
             /* [DONE] get tags from data-tags attribute */
-            let articleTags = article.getAttribute('data-tags');
+            const articleTags = article.getAttribute('data-tags');
             console.log(articleTags);
 
             /* [DONE] split tags into array */
@@ -165,7 +166,7 @@
         const tag = href.replace('#tag-', '');
         console.log('Extracted tag:', tag);
 
-        /* [DONE] find all tag links with class active */
+        /* [DONE]find all tag links with class active */
         const activeTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
         console.log('Active link:', activeTagLinks);
 
@@ -212,4 +213,50 @@
     }
     addClickListenersToTags();
 
+    function generateAuthors() {
+
+        /* [DONE] find all articles */
+        const articles = document.querySelectorAll(optArticleSelector);
+        console.log('Articles:', articles);
+
+        /* [DONE] START LOOP: for every article: */
+        for (let article of articles) {
+
+            /* find authors wrapper */
+            const authorWrapper = article.querySelector(optArticleAuthorSelector);
+            console.log('Author wrapper working',authorWrapper);
+
+            /* make html variable with empty string */
+            let html = '';
+
+            /* get authors from data-author attribute */
+            const author = article.getAttribute('data-author');
+            console.log('Author:', author);
+
+            /* generate HTML of the link */
+            const linkHTML = '<li><a href="#author-' + author + '"><span>' + author + '</span></a></li> ';
+            console.log(linkHTML);
+
+            /* add generated code to html variable */
+            html = html + linkHTML;
+
+            /* insert HTML of all the authors into the authors wrapper */
+            authorWrapper.innerHTML = html;
+            console.log(authorWrapper);
+
+            /* END LOOP: for every article */
+        }
+
+    }
+    generateAuthors();
+
+
+
+
+
+
+
 }
+
+
+
